@@ -10,6 +10,7 @@ class Bank extends CI_Controller{
     }
 
     function index(){
+		$x['title'] = 'Bank';
         $x['data']=$this->mbank->tampil_bank();
         $this->load->view('backend/v_bank',$x);
     }

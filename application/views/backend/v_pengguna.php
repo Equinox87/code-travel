@@ -14,7 +14,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Code Travel | Dashboard</title>
+  <title>Code Travel | <?php echo $title; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
   <!-- Bootstrap 3.3.6 -->
@@ -26,7 +26,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/dist/css/AdminLTE.min.css'?>">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+  folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/dist/css/skins/_all-skins.min.css'?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plugins/toast/jquery.toast.min.css'?>"/>
   
@@ -42,7 +42,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-   <?php 
+  <?php 
     $this->load->view('backend/v_header');
   ?>
   <!-- Left side column. contains the logo and sidebar -->
@@ -193,7 +193,6 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
           <div class="box">
             <div class="box-header">
               <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Add New</a>
@@ -277,11 +276,11 @@
                     <input name="nama" class="form-control" type="text" placeholder="Nama" required>
                 </div>
             </div>
-                   
+        
             <div class="form-group">
                 <label class="control-label col-xs-3" >Username</label>
                 <div class="col-xs-8">
-                    <input name="user" class="form-control" type="text" placeholder="username" required>
+                    <input name="user" class="form-control" type="text" placeholder="Username" required>
                 </div>
             </div>
 

@@ -10,6 +10,7 @@ class Pengguna extends CI_Controller{
         $this->load->library('upload');
     }
     function index(){
+        $x['title'] = 'Pengguna';
         if($this->session->userdata('akses')=='1'){
         	$x['data']=$this->mpengguna->pengguna();
             $this->load->view('backend/v_pengguna',$x);

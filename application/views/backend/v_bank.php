@@ -14,7 +14,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Code Travel | Dashboard</title>
+  <title>Code Travel | <?php echo $title; ?> </title>
   <!-- Tell the browser to be responsive to screen width -->
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
   <!-- Bootstrap 3.3.6 -->
