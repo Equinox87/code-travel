@@ -10,6 +10,7 @@ class Wisata extends CI_Controller{
         $this->load->library('upload');
     }
     function index(){
+		$x['title'] = 'List Wisata';
 	    if($this->session->userdata('akses')=='1'){
 	    	$x['data']=$this->mwisata->tampil_wisata();
 	        $this->load->view('backend/v_wisata',$x);

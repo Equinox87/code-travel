@@ -10,6 +10,7 @@ class Inbox extends CI_Controller{
 	}
 
 	function index(){
+		$x['title'] = 'Inbox';
 		$this->m_kontak->update_status_kontak();
 		$x['data']=$this->m_kontak->get_all_inbox();
 		$this->load->view('backend/v_inbox',$x);

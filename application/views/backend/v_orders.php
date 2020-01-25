@@ -1,7 +1,7 @@
 <!--Counter Inbox-->
 <?php 
     $query=$this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
-    $query2=$this->db->query("SELECT * FROM orders WHERE status <> 'LUNAS'");
+    $query2=$this->db->query("SELECT * FROM orders WHERE status_bayar <> 'LUNAS'");
     $query3=$this->db->query("SELECT * FROM testimoni WHERE status ='0'");
     $query4=$this->db->query("SELECT * FROM pembayaran");
     $jum_pesan=$query->num_rows();
@@ -14,10 +14,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>M-Travel | Orders List</title>
+  <title>Code Travel | <?php echo $title; ?> </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.png'?>">
+  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
   <!-- Font Awesome -->
@@ -32,7 +32,7 @@
   <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/datepicker/datepicker3.css'?>">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+  folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/dist/css/skins/_all-skins.min.css'?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plugins/toast/jquery.toast.min.css'?>"/>
 
@@ -40,11 +40,12 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-   <?php 
-    $this->load->view('backend/v_header');
-  ?>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+<?php 
+  $this->load->view('backend/v_header');
+?>
+
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       
@@ -60,27 +61,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pencil"></i>
-            <span>Post</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'backend/post/add_post'?>"><i class="fa fa-thumb-tack"></i> Add New</a></li>
-            <li><a href="<?php echo base_url().'backend/post'?>"><i class="fa fa-list"></i> Post List</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="<?php echo base_url().'backend/pengguna'?>">
-            <i class="fa fa-users"></i> <span>Pengguna</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
+
         <li>
           <a href="<?php echo base_url().'backend/bank'?>">
             <i class="fa fa-bank"></i> <span>Bank</span>
@@ -89,14 +70,16 @@
             </span>
           </a>
         </li>
+
         <li>
           <a href="<?php echo base_url().'backend/wisata'?>">
-            <i class="fa fa-map-signs"></i> <span>Wisata</span>
+            <i class="fa fa-map"></i> <span>Wisata</span>
             <span class="pull-right-container">
               <small class="label pull-right"></small>
             </span>
           </a>
         </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-bus"></i>
@@ -110,6 +93,7 @@
             <li><a href="<?php echo base_url().'backend/kategori'?>"><i class="fa fa-hashtag"></i> Kategori</a></li>
           </ul>
         </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-camera"></i>
@@ -135,7 +119,7 @@
 
         <li>
           <a href="<?php echo base_url().'backend/konfirmasi'?>">
-            <i class="fa fa-money"></i> <span>Konfirmasi</span>
+            <i class="fa fa-credit-card"></i> <span>Konfirmasi</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red"><?php echo $jum_konfirmasi;?></small>
             </span>
@@ -160,7 +144,16 @@
           </a>
         </li>
 
-         <li>
+        <li>
+          <a href="<?php echo base_url().'backend/pengguna'?>">
+            <i class="fa fa-users"></i> <span>Pengguna</span>
+            <span class="pull-right-container">
+              <small class="label pull-right"></small>
+            </span>
+          </a>
+        </li>
+
+        <li>
           <a href="<?php echo base_url().'administrator/logout'?>">
             <i class="fa fa-sign-out"></i> <span>Sign Out</span>
             <span class="pull-right-container">
@@ -169,7 +162,6 @@
           </a>
         </li>
         
-       
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -228,8 +220,8 @@
                 $total=$a['total'];
                 $dewasa=$a['adult'];
                 $anak=$a['kids'];
-                $status=$a['status'];
-                       
+                $status=$a['status_bayar'];
+
           ?>
             <tr>
                 <td style="vertical-align: middle;"><?php echo $id; ?></td>
@@ -266,12 +258,10 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
-    </div>
-    <strong>Copyright &copy; 2017 <a href="http://mfikri.com">M Fikri Setiadi</a>.</strong> All rights reserved.
-  </footer>
+  <!-- footer -->
+  <?php
+    $this->load->view('backend/v_footer');
+  ?>
 
   
   <div class="control-sidebar-bg"></div>
@@ -343,7 +333,7 @@
         $total=$a['total'];
         $dewasa=$a['adult'];
         $anak=$a['kids'];
-        $status=$a['status'];
+        $status=$a['status_bayar'];
   ?>
 	<!--Modal Hapus Order-->
         <div class="modal fade" id="ModalHapus<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

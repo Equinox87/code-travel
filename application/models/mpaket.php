@@ -63,8 +63,8 @@ class Mpaket extends CI_Model{
         }
         return "INV".date('dmy').$kd;
 	}
-	function simpan_order($no_order,$nama,$jekel,$alamat,$notelp,$email,$paket,$berangkat,$kembali,$dewasa,$anak2,$ket){
-		$hasil=$this->db->query("INSERT INTO orders(id_order,nama,jenkel,alamat,notelp,email,berangkat,kembali,adult,kids,paket_id_order,keterangan,tanggal)VALUES('$no_order','$nama','$jekel','$alamat','$notelp','$email','$berangkat','$kembali','$dewasa','$anak2','$paket','$ket',CURDATE())");
+	function simpan_order($no_order,$nama,$jekel,$alamat,$notelp,$email,$paket,$berangkat,$kembali,$dewasa,$anak2,$ket,$bayar){
+		$hasil=$this->db->query("INSERT INTO orders(id_order,nama,jenkel,alamat,notelp,email,berangkat,kembali,adult,kids,paket_id_order,keterangan,tanggal,status_bayar)VALUES('$no_order','$nama','$jekel','$alamat','$notelp','$email','$berangkat','$kembali','$dewasa','$anak2','$paket','$ket',CURDATE(),'$bayar')");
 		return $hasil;
 	}
 	function get_metode(){

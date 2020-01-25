@@ -9,6 +9,7 @@ class Orders extends CI_Controller{
         $this->load->model('morders');
     }
     function index(){
+        $x['title'] = 'Orders';
         $x['data']=$this->morders->get_orders();
 		$this->load->view('backend/v_orders',$x);
     }

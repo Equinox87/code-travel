@@ -60,7 +60,7 @@ class Pengguna extends CI_Controller{
             echo $this->session->set_flashdata('msg','warning');
             redirect('backend/pengguna');
         }
-                     
+        
         }else{
             redirect('backend/pengguna');
         }

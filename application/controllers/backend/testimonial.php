@@ -9,6 +9,7 @@ class Testimonial extends CI_Controller{
         $this->load->model('mtestimoni');
     }
     function index(){
+        $x['title'] = 'Testimonial';
         $x['data']=$this->mtestimoni->get_testimoni();
 		$this->load->view('backend/v_testimonial',$x);
     }
