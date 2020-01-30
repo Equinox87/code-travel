@@ -9,6 +9,7 @@ class Konfirmasi extends CI_Controller{
         $this->load->model('morders');
     }
     function index(){
+        $x['title']='Konfirmasi Pembayaran';
         $x['data']=$this->morders->get_pembayaran();
 		$this->load->view('backend/v_konfirmasi',$x);
     }

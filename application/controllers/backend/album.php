@@ -10,6 +10,7 @@ class Album extends CI_Controller{
         $this->load->library('upload');
     }
     function index(){
+        $x['title'] = 'Album';
         if($this->session->userdata('akses')=='1'){
         	$x['data']=$this->malbum->tampil_album();
             $this->load->view('backend/v_album',$x);

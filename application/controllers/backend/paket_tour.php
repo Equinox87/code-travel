@@ -11,6 +11,7 @@ class Paket_tour extends CI_Controller{
     }
     function index(){
 	    if($this->session->userdata('akses')=='1'){
+			$x['title']='Paket Tour';
 	    	$x['data']=$this->mpaket->tampil_paket();
 			$x['kat']=$this->mpaket->get_kategori();
 	        $this->load->view('backend/v_paket_tour',$x);

@@ -3,10 +3,10 @@
     <head>
         <title>Booking Online</title>
 
-<!-- Meta tags -->
+        <!-- Meta tags -->
         <meta charset="utf-8">
-        <meta name="description" content="Demo Website Company Profil Tour and Travel" />
-        <meta name="author" content="M Fikri Setiadi" />
+        <meta name="description" content="Website Travel" />
+        <meta name="author" content="Code Travel" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
         <!-- Stylesheets -->
@@ -22,8 +22,8 @@
 
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="<?php echo base_url().'theme/images/favicon.png'?>" />
-     <?php 
+        <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
+        <?php 
             function limit_words($string, $word_limit){
                 $words = explode(" ",$string);
                 return implode(" ",array_splice($words,0,$word_limit));
@@ -47,7 +47,7 @@
                     <img src="<?php echo base_url().'theme/images/placeholders/940x220.png'?>" alt="" />
                 </div>
                 
-               <!-- Main Menu -->
+                <!-- Main Menu -->
                 <div id="menu" class="home">
                     <ul id="root-menu" class="sf-menu">
                         <?php
@@ -116,7 +116,6 @@
                                 <p>
                                     <label for="checkout" class="required label">kepulangan:</label>
                                     <input type="text" readonly="readonly" id="checkout" class="datepicker" name="kembali" style="width:300px;" required/>
-                                   
                                 </p>
                                 <p>
                                     <label for="adultamt" class="required label">Dewasa:</label>
@@ -131,6 +130,10 @@
                                     <label id="note" for="notebox" class="label">Permintaan Khusus:</label>
                                     <textarea id="notebox" name="notebox" cols="28" rows="5" style="width:300px;"></textarea>
                                 </p>
+
+                                <p>
+                                    <input type="hidden" id="status_bayar" name="status_bayar" value="BELUM LUNAS"/>
+                                </p>
                                 
                                 <p>
                                     <label></label>
@@ -144,111 +147,9 @@
                 
                 
                 <!-- Footer -->
-                <div id="footer">
-                    <div class="container section end">
-                        <div id="footer-about" class="one-fourth column">
-                            <p><img src="<?php echo base_url().'theme/images/footer-logo.png'?>" alt="" />
-                            </p>
-                            <p>
-                                <br><a href="#">Alamat Kantor:</a></br>
-                                <span>Jl. Tour & Travel Padang, Sumatra Barat</span>
-                                <span>Telp: 0751 XXXXXXX</span>
-                            </p>
-                            <p>
-                                <span>Telp: 0751 XXXXXXX</span>
-                                <span>Fax: 0751 XXXXXXX</span>
-                                <span>Email: fikrifiver97@gmail.com</span>
-                            </p>
-                        </div>
-                        <div id="footer-offers" class="one-fourth column">
-                            <h4><span class="footer left">News &amp; Events</span></h4>
-                            <ul>
-                             <?php
-                            foreach ($berita->result_array() as $j) {
-                                $idberitaf=$j['idberita'];
-                                $judulf=$j['judul'];
-                                $isif=limit_words($j['isi'],10);
-                                $tglpostf=$j['tglpost'];
-                                $gbrf=$j['gambar'];
-                                $userf=$j['user'];
-                            ?>
-                                <li>
-                                    <a href="<?php echo base_url().'berita_post/detail_berita/'.$idberitaf;?>"><img width="50" height="50" src="<?php echo base_url().'assets/gambars/'.$gbrf;?>" alt="" /><?php echo $isif;?></a>
-                                </li>
-
-                                <?php } ?>
-                            </ul>
-                        </div>
-                        <div id="footer-offers" class="one-fourth column">
-                            <h4><span class="footer left">Paket Tour</span></h4>
-                            <ul>
-                            <?php
-                            foreach ($paket->result_array() as $h) {
-                                $idpaketf=$h['idpaket'];
-                                $namapaketf=$h['nama_paket'];
-                                $gambarf=$h['gambar'];
-                            ?>
-                                <li>
-                                    <a href="<?php echo base_url().'paket_tour/detail_paket/'.$idpaketf;?>"><img width="50" height="50" src="<?php echo base_url().'assets/gambars/'.$gambarf;?>" alt="" /><?php echo $namapaketf;?></a>
-                                </li>
-                            <?php } ?> 
-                            </ul>
-                        </div>
-                        <div id="footer-gallery" class="one-fourth column last">
-                            <h4><span class="footer left">Photo Gallery</span></h4>
-                            <ul>
-                                <?php
-                                    foreach ($photo->result_array() as $p):
-                                    $jdl_galeri=$p['jdl_galeri'];
-                                    $gbr_galeri=$p['gbr_galeri'];
-                                ?>
-                                <li>
-                                    <a href="<?php echo base_url().'assets/gambars/'.$gbr_galeri;?>" class="image-box" rel="beach"><img src="<?php echo base_url().'assets/gambars/'.$gbr_galeri;?>"  alt="" /></a>
-                                </li>
-                                <?php endforeach ?>
-                            </ul>
-                            <p>
-                                <a href="<?php echo base_url().'detail_photo/galeri';?>">Lihat Semua</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Copyright and Social Icons -->
-                <div id="copyright">
-                    <div class="container section end">
-                        <ul id="social">
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/facebook.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/flickr.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/twitter.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/vimeo.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/rss.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/google-plus.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/linkedin.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/dribbble.png'?>" alt="" /></a>
-                            </li>
-                        </ul>
-                        <span id="text">Copyright &copy; <?php date_default_timezone_set('Asia/Jakarta'); echo date('Y');?> | <a href="http://mfikri.com">M Fikri Setiadi</a>.</span>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?php 
+                    $this->load->view('front/v_footer')
+                ?>
         
             <script type="text/javascript" src="<?php echo base_url().'theme/scripts/jquery-1.7.2.min.js'?>"></script>
             <script type="text/javascript" src="<?php echo base_url().'theme/scripts/jquery.easing.1.3.js'?>"></script>

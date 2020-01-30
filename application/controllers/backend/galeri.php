@@ -10,6 +10,7 @@ class Galeri extends CI_Controller{
         $this->load->library('upload');
     }
     function index(){
+        $x['title'] = 'Photos';
         if($this->session->userdata('akses')=='1'){
         	$x['data']=$this->mgaleri->tampil_galeri();
             $x['alm']=$this->mgaleri->get_album();
@@ -51,7 +52,7 @@ class Galeri extends CI_Controller{
             echo $this->session->set_flashdata('msg','warning');
             redirect('backend/galeri');
         }
-                     
+
         }else{
             redirect('backend/galeri');
         }

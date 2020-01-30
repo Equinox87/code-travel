@@ -1,7 +1,7 @@
 <!--Counter Inbox-->
 <?php 
     $query=$this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
-    $query2=$this->db->query("SELECT * FROM orders WHERE status <> 'LUNAS'");
+    $query2=$this->db->query("SELECT * FROM orders WHERE status_bayar <> 'LUNAS'");
     $query3=$this->db->query("SELECT * FROM testimoni WHERE status ='0'");
     $query4=$this->db->query("SELECT * FROM pembayaran");
     $jum_pesan=$query->num_rows();
@@ -14,10 +14,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>M-Travel | Konfirmasi Pembayaran</title>
+  <title>Code Travel | <?php echo $title ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.png'?>">
+  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
   <!-- Font Awesome -->
@@ -40,140 +40,132 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-   <?php 
+  <?php 
     $this->load->view('backend/v_header');
   ?>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu">
-        <li class="header">Menu Utama</li>
-        <li>
-          <a href="<?php echo base_url().'backend/dashboard'?>">
-            <i class="fa fa-home"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pencil"></i>
-            <span>Post</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'backend/post/add_post'?>"><i class="fa fa-thumb-tack"></i> Add New</a></li>
-            <li><a href="<?php echo base_url().'backend/post'?>"><i class="fa fa-list"></i> Post List</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="<?php echo base_url().'backend/pengguna'?>">
-            <i class="fa fa-users"></i> <span>Pengguna</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url().'backend/bank'?>">
-            <i class="fa fa-bank"></i> <span>Bank</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url().'backend/wisata'?>">
-            <i class="fa fa-map-signs"></i> <span>Wisata</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bus"></i>
-            <span>Tour</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'backend/paket_tour'?>"><i class="fa fa-gift"></i> Paket Tour</a></li>
-            <li><a href="<?php echo base_url().'backend/kategori'?>"><i class="fa fa-hashtag"></i> Kategori</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-camera"></i>
-            <span>Gallery</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'backend/album'?>"><i class="fa fa-clone"></i> Album</a></li>
-            <li><a href="<?php echo base_url().'backend/galeri'?>"><i class="fa fa-picture-o"></i> Photos</a></li>
-          </ul>
-        </li>
 
-        <li>
-          <a href="<?php echo base_url().'backend/orders'?>">
-            <i class="fa fa-bell"></i> <span>Orders</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red"><?php echo $jum_order;?></small>
-            </span>
-          </a>
-        </li>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+    <li class="header">Menu Utama</li>
+    <li>
+        <a href="<?php echo base_url().'backend/dashboard'?>">
+        <i class="fa fa-home"></i> <span>Dashboard</span>
+        <span class="pull-right-container">
+            <small class="label pull-right"></small>
+        </span>
+        </a>
+    </li>
 
-        <li class="active">
-          <a href="<?php echo base_url().'backend/konfirmasi'?>">
-            <i class="fa fa-money"></i> <span>Konfirmasi</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red"><?php echo $jum_konfirmasi;?></small>
-            </span>
-          </a>
-        </li>
+    <li>
+        <a href="<?php echo base_url().'backend/bank'?>">
+        <i class="fa fa-bank"></i> <span>Bank</span>
+        <span class="pull-right-container">
+            <small class="label pull-right"></small>
+        </span>
+        </a>
+    </li>
 
-        <li>
-          <a href="<?php echo base_url().'backend/inbox'?>">
-            <i class="fa fa-envelope"></i> <span>Inbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green"><?php echo $jum_pesan;?></small>
-            </span>
-          </a>
-        </li>
+    <li>
+        <a href="<?php echo base_url().'backend/wisata'?>">
+        <i class="fa fa-map"></i> <span>Wisata</span>
+        <span class="pull-right-container">
+            <small class="label pull-right"></small>
+        </span>
+        </a>
+    </li>
 
-        <li>
-          <a href="<?php echo base_url().'backend/testimonial'?>">
-            <i class="fa fa-comment"></i> <span>Testimonial</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow"><?php echo $jum_testimoni;?></small>
-            </span>
-          </a>
-        </li>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-bus"></i>
+        <span>Tour</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="<?php echo base_url().'backend/paket_tour'?>"><i class="fa fa-gift"></i> Paket Tour</a></li>
+        <li><a href="<?php echo base_url().'backend/kategori'?>"><i class="fa fa-hashtag"></i> Kategori</a></li>
+        </ul>
+    </li>
 
-         <li>
-          <a href="<?php echo base_url().'administrator/logout'?>">
-            <i class="fa fa-sign-out"></i> <span>Sign Out</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
-        
-       
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-camera"></i>
+        <span>Gallery</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="<?php echo base_url().'backend/album'?>"><i class="fa fa-clone"></i> Album</a></li>
+        <li><a href="<?php echo base_url().'backend/galeri'?>"><i class="fa fa-picture-o"></i> Photos</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="<?php echo base_url().'backend/orders'?>">
+        <i class="fa fa-bell"></i> <span>Orders</span>
+        <span class="pull-right-container">
+            <small class="label pull-right bg-red"><?php echo $jum_order;?></small>
+        </span>
+        </a>
+    </li>
+
+    <li class="active">
+        <a href="<?php echo base_url().'backend/konfirmasi'?>">
+        <i class="fa fa-credit-card"></i> <span>Konfirmasi</span>
+        <span class="pull-right-container">
+            <small class="label pull-right bg-red"><?php echo $jum_konfirmasi;?></small>
+        </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="<?php echo base_url().'backend/inbox'?>">
+        <i class="fa fa-envelope"></i> <span>Inbox</span>
+        <span class="pull-right-container">
+            <small class="label pull-right bg-green"><?php echo $jum_pesan;?></small>
+        </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="<?php echo base_url().'backend/testimonial'?>">
+        <i class="fa fa-comment"></i> <span>Testimonial</span>
+        <span class="pull-right-container">
+            <small class="label pull-right bg-yellow"><?php echo $jum_testimoni;?></small>
+        </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="<?php echo base_url().'backend/pengguna'?>">
+        <i class="fa fa-users"></i> <span>Pengguna</span>
+        <span class="pull-right-container">
+            <small class="label pull-right"></small>
+        </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="<?php echo base_url().'administrator/logout'?>">
+        <i class="fa fa-sign-out"></i> <span>Sign Out</span>
+        <span class="pull-right-container">
+            <small class="label pull-right"></small>
+        </span>
+        </a>
+    </li>
+    
+    </ul>
+</section>
+<!-- /.sidebar -->
+</aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -221,7 +213,7 @@
                 $invoice=$a['order_id'];
                 $jml=$a['jumlah'];
                 $bukti=$a['bukti_transfer'];
-                $status=$a['status'];
+                $status=$a['status_bayar'];
                 $pengirim=$a['pengirim'];
                 $total=$a['total'];
                            
@@ -252,12 +244,10 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
-    </div>
-    <strong>Copyright &copy; 2017 <a href="http://mfikri.com">M Fikri Setiadi</a>.</strong> All rights reserved.
-  </footer>
+  <!-- footer -->
+  <?php
+    $this->load->view('backend/v_footer');
+  ?>
 
   
   <div class="control-sidebar-bg"></div>

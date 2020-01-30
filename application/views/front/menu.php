@@ -21,12 +21,8 @@
                         <li>
                             <a href="<?php echo base_url().'paket_tour'?>">Paket Tour</a>
                         </li>
-                         <li>
-                            <a href="<?php echo base_url().'konfirmasi'?>">Konfirmasi</a>
-                        </li>
-                            
                         <li>
-                            <a href="<?php echo base_url().'berita_post'?>">Berita</a>
+                            <a href="<?php echo base_url().'konfirmasi'?>">Konfirmasi</a>
                         </li>
 						<li>
                             <a href="#">Gallery</a>

@@ -10,6 +10,7 @@ class Kategori extends CI_Controller{
     }
     function index(){
         if($this->session->userdata('akses')=='1'){
+            $x['title']='Kategori';
         	$x['data']=$this->mkategori->kategori();
             $this->load->view('backend/v_kategori',$x);
         }else{

@@ -43,7 +43,7 @@
 <div class="wrapper">
 
 <?php 
-  $this->load->view('backend/v_header');
+    $this->load->view('backend/v_header');
 ?>
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -244,10 +244,10 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<!-- footer -->
-<?php
-$this->load->view('backend/v_footer');
-?>
+  <!-- footer -->
+  <?php
+    $this->load->view('backend/v_footer');
+  ?>
 
 <div class="control-sidebar-bg"></div>
 </div>
