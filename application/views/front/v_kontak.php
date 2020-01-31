@@ -86,7 +86,7 @@
                                 </p>
                                 <p>
                                     <label></label>
-                                    <input class="medium gray button" type="submit" name="Submit" value="Submit" />
+                                    <input class="medium blue button" type="submit" name="Submit" value="Submit" />
                                 </p>
                             </form>
 
@@ -98,7 +98,7 @@
 
                 <!-- Footer -->
                 <?php
-                $this->load->view('front/v_footer');
+                    $this->load->view('front/v_footer');
                 ?>
 
         <!-- JavaScript Files -->

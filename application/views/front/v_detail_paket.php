@@ -3,10 +3,11 @@
     <!--<![endif]-->
     <head>
         <title>Paket Tour</title>
-<!-- Meta tags -->
+
+        <!-- Meta tags -->
         <meta charset="utf-8">
-        <meta name="description" content="Demo Website Company Profil Tour and Travel" />
-        <meta name="author" content="M Fikri Setiadi" />
+        <meta name="description" content="Website Travel" />
+        <meta name="author" content="Code Travel" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
         <!-- Stylesheets -->
@@ -19,7 +20,7 @@
         
        
         <!-- Favicons -->
-        <link rel="shortcut icon" href="<?php echo base_url().'theme/images/favicon.png'?>" />
+        <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
      <?php 
             function limit_words($string, $word_limit){
                 $words = explode(" ",$string);
@@ -41,7 +42,7 @@
                 <div id="sub-banner">
                     <div id="logo">
                     </div>
-                    <img src="<?php echo base_url().'theme/images/placeholders/940x220.png'?>" alt="" />
+                    <img src="<?php echo base_url().'theme/images/placeholders/header-image-static.jpg'?>" alt="" />
                 </div>
                 
                 <!-- Main Menu -->
@@ -50,7 +51,6 @@
                         <?php
                         $this->load->view('front/menu');
                         ?>
-                       
                     </ul>
                 </div>
                     <?php
@@ -71,7 +71,7 @@
                                 </p>
                                 
                                 <div id="about-author">
-                                    <h4><a href="<?php echo base_url().'paket_tour/pesan_paket/'.$n['idpaket'];?>" class="small gray button">Pesan Sekarang</a></h2>
+                                    <h4><a href="<?php echo base_url().'paket_tour/pesan_paket/'.$n['idpaket'];?>" class="small blue button">Pesan Sekarang</a></h2>
                                     
                                 </div>
                                 
@@ -80,12 +80,12 @@
                         </div>
                         <div id="sidebar-content" class="one-third column last">
                             <div class="sidebar-item">
-                                <h3 class="nobg">Search</h3>
+                                <h3 class="nobg">Pencarian</h3>
                                 <form id="search-form" method="get">
                                     <span>
                                         <input id="searchbox" type="text" placeholder="Type keywords here..." />
                                     </span>
-                                    <input id="search-button" class="medium gray button" type="submit" value="Go" />
+                                    <input id="search-button" class="medium blue button" type="submit" value="Go" />
                                 </form>
                             </div>
                             
@@ -116,111 +116,9 @@
                 </div>
                 
                 <!-- Footer -->
-                <div id="footer">
-                    <div class="container section end">
-                        <div id="footer-about" class="one-fourth column">
-                            <p><img src="<?php echo base_url().'theme/images/footer-logo.png'?>" alt="" />
-                            </p>
-                            <p>
-                                <br><a href="#">Alamat Kantor:</a></br>
-                                <span>Jl. Tour & Travel Padang, Sumatra Barat</span>
-                                <span>Telp: 0751 XXXXXXX</span>
-                            </p>
-                            <p>
-                                <span>Telp: 0751 XXXXXXX</span>
-                                <span>Fax: 0751 XXXXXXX</span>
-                                <span>Email: fikrifiver97@gmail.com</span>
-                            </p>
-                        </div>
-                        <div id="footer-offers" class="one-fourth column">
-                            <h4><span class="footer left">News &amp; Events</span></h4>
-                            <ul>
-                             <?php
-                            foreach ($berita->result_array() as $j) {
-                                $idberitaf=$j['idberita'];
-                                $judulf=$j['judul'];
-                                $isif=limit_words($j['isi'],10);
-                                $tglpostf=$j['tglpost'];
-                                $gbrf=$j['gambar'];
-                                $userf=$j['user'];
-                            ?>
-                                <li>
-                                    <a href="<?php echo base_url().'berita_post/detail_berita/'.$idberitaf;?>"><img width="50" height="50" src="<?php echo base_url().'assets/gambars/'.$gbrf;?>" alt="" /><?php echo $isif;?></a>
-                                </li>
-
-                                <?php } ?>
-                            </ul>
-                        </div>
-                        <div id="footer-offers" class="one-fourth column">
-                            <h4><span class="footer left">Paket Tour</span></h4>
-                            <ul>
-                            <?php
-                            foreach ($paket->result_array() as $h) {
-                                $idpaketf=$h['idpaket'];
-                                $namapaketf=$h['nama_paket'];
-                                $gambarf=$h['gambar'];
-                            ?>
-                                <li>
-                                    <a href="<?php echo base_url().'paket_tour/detail_paket/'.$idpaketf;?>"><img width="50" height="50" src="<?php echo base_url().'assets/gambars/'.$gambarf;?>" alt="" /><?php echo $namapaketf;?></a>
-                                </li>
-                            <?php } ?> 
-                            </ul>
-                        </div>
-                        <div id="footer-gallery" class="one-fourth column last">
-                            <h4><span class="footer left">Photo Gallery</span></h4>
-                            <ul>
-                                <?php
-                                    foreach ($photo->result_array() as $p):
-                                    $jdl_galeri=$p['jdl_galeri'];
-                                    $gbr_galeri=$p['gbr_galeri'];
-                                ?>
-                                <li>
-                                    <a href="<?php echo base_url().'assets/gambars/'.$gbr_galeri;?>" class="image-box" rel="beach"><img src="<?php echo base_url().'assets/gambars/'.$gbr_galeri;?>"  alt="" /></a>
-                                </li>
-                                <?php endforeach ?>
-                            </ul>
-                            <p>
-                                <a href="<?php echo base_url().'detail_photo/galeri';?>">Lihat Semua</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Copyright and Social Icons -->
-                <div id="copyright">
-                    <div class="container section end">
-                        <ul id="social">
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/facebook.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/flickr.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/twitter.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/vimeo.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/rss.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/google-plus.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/linkedin.png'?>" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/dribbble.png'?>" alt="" /></a>
-                            </li>
-                        </ul>
-                        <span id="text">Copyright &copy; <?php date_default_timezone_set('Asia/Jakarta'); echo date('Y');?> | <a href="http://mfikri.com">M Fikri Setiadi</a>.</span>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?php 
+                    $this->load->view('front/v_footer');
+                ?>
 
         <!-- JavaScript Files -->
         <script type="text/javascript" src="<?php echo base_url().'theme/scripts/jquery-1.7.2.min.js'?>"></script>

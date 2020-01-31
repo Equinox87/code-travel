@@ -62,7 +62,7 @@
                                 <a href="#"><img src="<?php echo base_url().'theme/images/social/instagram.png'?>" alt="" /></a>
                             </li>
                             <li>
-                                <a href="#"><img src="<?php echo base_url().'theme/images/social/whatsapp.png'?>" alt="" /></a>
+                                <a href="https://api.whatsapp.com/send?phone=081338049392&text=Hai%20Admin"><img src="<?php echo base_url().'theme/images/social/whatsapp.png'?>" alt="" /></a>
                             </li>
                         </ul>
                         <span id="text">Copyright &copy; <?php echo date('Y');?> | <a href="<?php  echo base_url().''?>">Code Travel</a>.</span>

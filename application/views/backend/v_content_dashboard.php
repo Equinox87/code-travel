@@ -3,7 +3,7 @@
     $query=$this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
     $query2=$this->db->query("SELECT * FROM orders WHERE status_bayar <> 'LUNAS'");
     $query3=$this->db->query("SELECT * FROM testimoni WHERE status ='0'");
-    $query4=$this->db->query("SELECT * FROM pembayaran");
+    $query4=$this->db->query("SELECT * FROM orders INNER JOIN pembayaran ON pembayaran.order_id = orders.id_order WHERE orders.status_bayar = 'BELUM LUNAS'");
     $query5=$this->db->query("SELECT * FROM wisata");
     $jum_pesan=$query->num_rows();
     $jum_order=$query2->num_rows();

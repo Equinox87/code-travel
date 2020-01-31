@@ -11,8 +11,8 @@ class Lokasi extends CI_Controller{
 		$x['photo']=$this->mberita->get_photo();
 		$this->load->library('googlemaps');
 		error_reporting(0);
-		$long='37.4419';
-		$lat='-122.1419';
+		$long='-8.804137';
+		$lat='115.140795';
 		$config=array();
 		$config['center']=$long.','. $lat;
 		$config['zoom']=16;

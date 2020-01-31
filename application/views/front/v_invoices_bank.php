@@ -13,7 +13,7 @@
     ?>
 <table align="center" style="width:800px; border-bottom:3px double;border-top:none;border-right:none;border-left:none;margin-top:5px;margin-bottom:20px;">
 <tr>
-    <td><img src="<?php echo base_url().'asset/img/kop_surat.png'?>"/></td>
+    <td><img src="<?php echo base_url().'theme/images/invoice-image.png'?>"/></td>
 </tr>
 </table>
 
@@ -108,7 +108,7 @@
 </table>
 <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
-        <td align="center">Padang, <?php echo date('d-M-Y')?></td>
+        <td align="center">Jimbaran, <?php echo date('d-M-Y')?></td>
     </tr>
     
     <tr>

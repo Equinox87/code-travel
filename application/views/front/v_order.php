@@ -1,7 +1,7 @@
 <html lang="id">
     <!--<![endif]-->
     <head>
-        <title>Booking Online</title>
+        <title>Form Pemesanan</title>
 
         <!-- Meta tags -->
         <meta charset="utf-8">
@@ -44,7 +44,7 @@
                 <div id="sub-banner">
                     <div id="logo">
                     </div>
-                    <img src="<?php echo base_url().'theme/images/placeholders/940x220.png'?>" alt="" />
+                    <img src="<?php echo base_url().'theme/images/placeholders/header-image-static.jpg'?>" alt="" />
                 </div>
                 
                 <!-- Main Menu -->
@@ -69,10 +69,10 @@
 							<p>4. Jika anda ingin membayaran penuh Pemesanan ketik(Full payment) di Form bagian *Permintaan khusus.</p>
 							<p>5. Setelah semua data-data di form pemesanan tersisi dengan lengkap maka akan keluar Invoice anda</p>
 							<p>6. Setelah itu silahkan Lakukan pembayaran tangihan anda sesuai dengan Invoice</p>
-							<p>7. setelah melakukan pembayaran maka anda diwajibkan Menkorfirmasi kami melalui Menu Komfirmasi</p>
-							<p>8. setelah itu kami akan Menvalidasi bukti Pemesanan anda<p>
+							<p>7. Setelah melakukan pembayaran maka anda diwajibkan Mengkonfirmasi kami melalui Menu Konfirmasi</p>
+							<p>8. Setelah itu kami akan menvalidasi bukti Pemesanan Anda<p>
                             <div class="info box">
-                                jika anda mengisi Formm pemsesanan ini, anda telah menyatakan sepakat dnegan syarat dan ketentuan kami.
+                                Jika anda mengisi form pemsesanan ini, anda telah menyatakan sepakat dnegan syarat dan ketentuan kami.
                             </div>
                         </div>
                         <div class="two-third column last">
@@ -99,7 +99,7 @@
                                 </p>
                                 <p>
                                     <label for="email" class="required label">Email:</label>
-                                    <input id="email" class="" placeholder="Contoh: mahakaryapromosindo@gmail.com" type="text" name="email" style="width:300px;" required/>
+                                    <input id="email" class="" placeholder="codetravel@gmail.com" type="text" name="email" style="width:300px;" required/>
                                 </p>
                                 <h3 class="extra-margin top"><span class="left">Wisata Info</span></h3>
                                 <p>
@@ -114,7 +114,7 @@
                                 
                                 </p>
                                 <p>
-                                    <label for="checkout" class="required label">kepulangan:</label>
+                                    <label for="checkout" class="required label">Kepulangan:</label>
                                     <input type="text" readonly="readonly" id="checkout" class="datepicker" name="kembali" style="width:300px;" required/>
                                 </p>
                                 <p>
@@ -137,7 +137,7 @@
                                 
                                 <p>
                                     <label></label>
-                                    <button type="submit" class="medium gray button">Lanjutkan</button>
+                                    <button type="submit" class="medium blue button">Lanjutkan</button>
                                 </p>
                             </form>
                             

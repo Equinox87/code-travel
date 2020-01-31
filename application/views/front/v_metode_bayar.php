@@ -3,10 +3,10 @@
     <head>
         <title>Metode Pembayaran</title>
 
-<!-- Meta tags -->
+        <!-- Meta tags -->
         <meta charset="utf-8">
-        <meta name="description" content="Demo Website Company Profil Tour and Travel" />
-        <meta name="author" content="M Fikri Setiadi" />
+        <meta name="description" content="Website Travel" />
+        <meta name="author" content="Code Travel" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
         <!-- Stylesheets -->
@@ -22,14 +22,14 @@
 
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="<?php echo base_url().'theme/images/favicon.png'?>" />
-     <?php 
-            function limit_words($string, $word_limit){
-                $words = explode(" ",$string);
-                return implode(" ",array_splice($words,0,$word_limit));
-            }
-                
-        ?>
+        <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.ico'?>">
+        <?php 
+                function limit_words($string, $word_limit){
+                    $words = explode(" ",$string);
+                    return implode(" ",array_splice($words,0,$word_limit));
+                }
+                    
+            ?>
     </head>
     <body>
         
@@ -44,7 +44,7 @@
                 <div id="sub-banner">
                     <div id="logo">
                     </div>
-                    <img src="<?php echo base_url().'theme/images/placeholders/940x220.png'?>" alt="" />
+                    <img src="<?php echo base_url().'theme/images/placeholders/header-image-static.jpg'?>" alt="" />
                 </div>
                 
                <!-- Main Menu -->

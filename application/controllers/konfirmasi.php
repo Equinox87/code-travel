@@ -29,10 +29,14 @@ class Konfirmasi extends CI_Controller{
 			$config['file_name'] = $nmfile; 
 
 			$this->upload->initialize($config);
-			if($_FILES['filefoto']['name'])
+			// echo $_FILES['filefoto']['name'];
+			// echo $this->input->post('filefoto');
+			if(!empty($_FILES['filefoto']['name']))
 			{
-				if ($this->upload->do_upload('filefoto'))
+				// echo $this->upload->do_upload('filefoto');
+				if ( $this->upload->do_upload('filefoto'))
 				{
+					echo $_FILES['filefoto']['name'];
 						$gbr = $this->upload->data();
 						$gambar=$gbr['file_name'];
 						$noinvoice=strip_tags(str_replace("'", "",$this->input->post('invoice')));
@@ -40,7 +44,7 @@ class Konfirmasi extends CI_Controller{
                         $bank=$this->input->post('bank');
                         $tgl_bayar=$this->input->post('tgl_bayar');
                         $jumlah=strip_tags(str_replace("'", "",$this->input->post('jumlah')));
-						
+						echo $nama;
 				if($gambar==true){
 					$this->morders->simpan_bukti($noinvoice,$nama,$bank,$tgl_bayar,$jumlah,$gambar);
 				}else{
@@ -48,7 +52,8 @@ class Konfirmasi extends CI_Controller{
 				}
 					echo $this->session->set_flashdata('msg','Terima Kasih Telah Melakukan Konfirmasi Pembayaran!');
 				redirect('konfirmasi');
-			}  } 
+			}  
+		} 
 
 		}else{
 			echo $this->session->set_flashdata('msg','No Invoice tidak cocok, coba cek lagi!');

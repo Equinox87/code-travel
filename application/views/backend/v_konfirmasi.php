@@ -3,7 +3,7 @@
     $query=$this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
     $query2=$this->db->query("SELECT * FROM orders WHERE status_bayar <> 'LUNAS'");
     $query3=$this->db->query("SELECT * FROM testimoni WHERE status ='0'");
-    $query4=$this->db->query("SELECT * FROM pembayaran");
+    $query4=$this->db->query("SELECT * FROM orders INNER JOIN pembayaran ON pembayaran.order_id = orders.id_order WHERE orders.status_bayar = 'BELUM LUNAS'");
     $jum_pesan=$query->num_rows();
     $jum_order=$query2->num_rows();
     $jum_testimoni=$query3->num_rows();
@@ -280,7 +280,7 @@
             <form class="form-horizontal" method="post" action="<?php echo base_url().'backend/konfirmasi/pembayaran_selesai'?>">
                 <div class="modal-body">
                     <input name="kode" type="hidden" value="<?php echo $invoice;?>">
-                    <img height="500" src="<?php echo base_url().'assets/images/'.$bukti;?>">
+                    <img height="500" src="<?php echo base_url().'assets/bukti_transfer/'.$bukti;?>">
 
           </div>
                 <div class="modal-footer">

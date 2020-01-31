@@ -61,13 +61,13 @@
                     <div class="container section">
                         <div class="one-third column">
                             <h3 class="nobg">Ketentuan dan Kebijakan</h3>
-                            <p>1. Setalah melakukan pembayaran anda wajib mengkofirmasi kami melalui from ini.</p>
-                            <p>2. Isi Data-Data Di form disamping sesuai dengan Bukti transfer anda.</p>
-                            <p>3. Isi Data-data Di from dengan lengkap</p>
+                            <p>1. Setelah melakukan pembayaran anda wajib mengkofirmasi kami melalui from ini.</p>
+                            <p>2. Isi Data-Data di form disamping sesuai dengan Bukti transfer anda.</p>
+                            <p>3. Isi Data-data di from dengan lengkap</p>
                             <p>4. Kami akan memvalidasi pembayaran anda.</p>
-                            <p>5. Jika anda ingin melakukan Komplain silahkan datang langsung ke kantor kita atau hubungi kami melalui live Chat.</p>
+                            <p>5. Jika anda ingin melakukan komplain silahkan datang langsung ke kantor kita atau hubungi kami melalui whatsapp.</p>
                             <div class="info box">
-                                Silahkan Konfirmasi Pembayaran anda disamping
+                                Silahkan Konfirmasi Pembayaran Anda Disamping !
                             </div>
                         </div>
                         <div class="two-third column last">
@@ -110,7 +110,7 @@
                                     </p>
 
                                     <p>
-                                      <label>Bukti Transfer dalam Format : Jpg, Png, Bmp, Gif.</label>
+                                      <label>Bukti Transfer dalam Format : jpg, png, bmp.</label>
                                       <input type="file" name="filefoto" required>
                                     </p>
 
@@ -125,7 +125,7 @@
                 
                 <!-- Footer -->
                 <?php 
-                $this->load->view('front/v_footer');
+                    $this->load->view('front/v_footer');
                 ?>
         
             <script type="text/javascript" src="<?php echo base_url().'theme/scripts/jquery-1.7.2.min.js'?>"></script>
